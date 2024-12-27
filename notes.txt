@@ -1,0 +1,75 @@
+Framework
+-maintain all project related files
+
+objective of framework
+-Re-usability of code
+-maintainability of code
+-Readability of code
+
+----------------------------------------------------
+static packages to import -
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+import org.testng.annotations.Test;
+---------------------------------------------------------------
+phases of framework
+1- understand requirement
+     -functional specification
+     -swagger
+2-choose automation tool-- Rest Assured
+3-design
+4-development
+5-execution +CI (continuous integration)
+----------------------------------------------------------------
+
+Steps
+1- Create maven project
+2-update required dependencies in pom.xml
+3-create folder structure
+4- create routes class  -- Routes.java
+5- Create endpoints- userEndpoints.java - CRUD method implementation
+6-getter and setter - user.java
+7-create testcases- UserTests.java
+8- create Data driven test
+   pre-requisite-
+     -excel sheet with data
+     -Apache poi api
+     -excel utility file
+     -DataProviders
+9-generate Extent report
+    -Extent report utility
+    -testng.xml
+    
+ 10-add logs
+ 		-log4j2 dependency--api and core need to add in dependency
+ 		-log4j2 configuration file need
+    
+
+
+----------------------------------------------
+endpoints 
+
+create user--
+curl -X 'POST' \
+  'https://petstore.swagger.io/v2/user' \
+  -H 'accept: application/json' \          (1)          //H Represent Header
+  -H 'Content-Type: application/json' \      (2)        // we have to pass all header which are present in swagger api
+  -d '{
+  "id": 0,
+  "username": "string",
+  "firstName": "string",
+  "lastName": "string",
+  "email": "string",
+  "password": "string",
+  "phone": "string",
+  "userStatus": 0
+}'
+
+
+
+-----------------------------------
+maven surefire plugin is required to run our tests though pom.xml
+
+
